@@ -36,7 +36,7 @@ ALLOWED_CLIMATE_PRESETS = {
 validate_presets = cv.enum(ALLOWED_CLIMATE_PRESETS, upper=True)
 
 CONFIG_SCHEMA = cv.All(
-    climate.CLIMATE_SCHEMA.extend(
+    climate._CLIMATE_SCHEMA.extend(
         {
             cv.GenerateID(): cv.declare_id(GreeClimate),
             cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(validate_presets),
