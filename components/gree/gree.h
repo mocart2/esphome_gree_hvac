@@ -4,6 +4,7 @@
 #include "esphome/components/climate/climate.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/log.h"
+#include <set>
 
 namespace esphome {
 namespace gree {
