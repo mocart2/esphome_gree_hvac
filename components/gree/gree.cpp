@@ -106,10 +106,11 @@ climate::ClimateTraits GreeClimate::traits() {
   });
 
   // traits.set_supported_swing_modes(this->supported_swing_modes_);
-  traits.set_supports_current_temperature(true);
-  traits.set_supports_two_point_target_temperature(false);
+  traits.add_feature_flags(climate::CLIMATE_SUPPORTS_CURRENT_TEMPERATURE);
 
-  traits.set_supported_presets(this->supported_presets_);
+  for (auto preset : this->supported_presets_) {
+    traits.add_supported_preset(preset);
+  }
 
   traits.add_supported_preset(climate::CLIMATE_PRESET_NONE);
   traits.add_supported_preset(climate::CLIMATE_PRESET_BOOST);
