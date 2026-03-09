@@ -109,7 +109,9 @@ climate::ClimateTraits GreeClimate::traits() {
   traits.set_supports_current_temperature(true);
   traits.set_supports_two_point_target_temperature(false);
 
-  traits.set_supported_presets(this->supported_presets_);
+  for (auto preset : this->supported_presets_) {
+    traits.add_supported_preset(preset);
+  }
 
   traits.add_supported_preset(climate::CLIMATE_PRESET_NONE);
   traits.add_supported_preset(climate::CLIMATE_PRESET_BOOST);
